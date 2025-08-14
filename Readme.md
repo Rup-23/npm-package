@@ -8,7 +8,9 @@ Features
 
 Install the package using npm:
 
+```
 npm i @rupeshkumar28/scroll-paginator
+```
 
 ```
 import React, { useState, useEffect } from 'react';
@@ -41,6 +43,34 @@ const MyComponent = () => {
         <div key={item.id}>{item.name}</div>
       ))}
     </InfiniteScroll>
+  );
+};
+
+export default MyComponent;
+```
+
+```
+import React, { useState } from 'react'
+import { Pagination } from "@rupeshkumar28/scroll-paginator";
+
+const MyComponent = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10;
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    // Fetch new data based on the page if needed
+  };
+
+  return (
+    <div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
+      <p>Current Page: {currentPage}</p>
+    </div>
   );
 };
 
